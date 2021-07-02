@@ -94,7 +94,13 @@ const Template: Story = () => {
   ];
 
   return (
-    <>
+    <div
+      style={{
+        width: '800px',
+        height: '400px',
+        position: 'relative',
+      }}
+    >
       <svg
         style={{ position: 'absolute', top: 0, left: 0, width, height }}
         viewBox={`0 0 ${width} ${height}`}
@@ -119,7 +125,7 @@ const Template: Story = () => {
           </Node>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
