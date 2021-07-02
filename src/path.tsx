@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { useDiagram } from './hook';
 import { IPath } from './type';
 
-export const DiagramPaths: React.FC<{
-  paths: IPath[];
+type Props<T> = {
+  paths: T[];
   children: (
-    path: IPath,
+    path: T,
     from: DOMRect | undefined,
     to: DOMRect | undefined
   ) => React.ReactNode;
-}> = React.memo(function _DiagramPath({ paths, children }) {
+};
+
+function _DiagramPaths<T extends IPath>({
+  paths,
+  children,
+}: PropsWithChildren<Props<T>>): React.ReactElement {
   const { nodes } = useDiagram();
 
   return (
@@ -20,4 +25,6 @@ export const DiagramPaths: React.FC<{
       )}
     </>
   );
-});
+}
+
+export const DiagramPaths = React.memo(_DiagramPaths) as typeof _DiagramPaths;

@@ -2,7 +2,6 @@ export type IPath = {
   id: string;
   from: string;
   to: string;
-  [key: string]: any;
 };
 
 export type ICanvas = {
