@@ -6,7 +6,8 @@
   "author": "DuGlaser <duglaser0618@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "rollup -c -w",
+    "build": "rm -rf ./dist && rollup -c",
+    "dev": "rm -rf ./dist && rollup -c -w",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
