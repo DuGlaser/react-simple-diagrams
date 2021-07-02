@@ -5,7 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 
 export default {
-  input: ['./src/index.ts'],
+  input: ['./src/index.tsx'],
   output: {
     dir: 'dist',
     format: 'esm',
@@ -16,7 +16,11 @@ export default {
   plugins: [
     resolve(),
     commonjs(),
-    babel({ babelHelpers: 'bundled' }),
+    babel({
+      babelHelpers: 'bundled',
+      exclude: ['node_modules/**'],
+      extensions: ['.tsx'],
+    }),
     typescript({
       tsconfig: './tsconfig.build.json',
       declaration: true,
