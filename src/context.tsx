@@ -79,14 +79,7 @@ export const DiagramProvider: React.FC = ({ children }) => {
   }, [canvasRef]);
 
   return (
-    <div
-      ref={canvasRef}
-      style={{
-        width: '800px',
-        height: '400px',
-        position: 'relative',
-      }}
-    >
+    <div ref={canvasRef}>
       <DiagramContext.Provider
         value={{
           nodes,
